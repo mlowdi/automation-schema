@@ -1,0 +1,76 @@
+{
+  "lexicon": 1,
+  "id": "one.mlf.actor.automation",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "literal:self",
+      "description": "Declares structured automation metadata for an account, complementing the coarse global 'bot' self-label with richer disclosure for clients, discovery, and moderation.",
+      "record": {
+        "type": "object",
+        "required": [
+          "class"
+        ],
+        "properties": {
+          "class": {
+            "type": "string",
+            "description": "Primary category of automation for this account.",
+            "knownValues": [
+              "broadcast",
+              "tracker",
+              "notifier",
+              "conversational",
+              "assistant",
+              "creative",
+              "hybrid"
+            ],
+            "maxLength": 64
+          },
+          "operator": {
+            "type": "string",
+            "format": "did",
+            "description": "Optional DID of the human, organization, or service account responsible for operating this automated account."
+          },
+          "purpose": {
+            "type": "string",
+            "description": "Optional plain-language description of the account's purpose and expected behavior.",
+            "maxLength": 1000,
+            "maxGraphemes": 300
+          },
+          "interactionMode": {
+            "type": "string",
+            "description": "How this automated account interacts with other users.",
+            "knownValues": [
+              "none",
+              "broadcast-only",
+              "mention-reply",
+              "thread-reply",
+              "proactive"
+            ],
+            "maxLength": 64
+          },
+          "humanSupervision": {
+            "type": "string",
+            "description": "Whether and how a human reviews or supervises the account's behavior.",
+            "knownValues": [
+              "none",
+              "reviewed",
+              "mixed"
+            ],
+            "maxLength": 64
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "RFC 3339 timestamp indicating when this automation declaration was first created."
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "RFC 3339 timestamp indicating when this automation declaration was last updated."
+          }
+        }
+      }
+    }
+  }
+}
