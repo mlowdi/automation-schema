@@ -1,11 +1,11 @@
 {
   "lexicon": 1,
-  "id": "one.mlf.actor.automation",
+  "id": "one.mlf.actor.automation.declaration",
   "defs": {
     "main": {
       "type": "record",
       "key": "literal:self",
-      "description": "Declares structured automation metadata for an account, complementing the coarse global 'bot' self-label with richer disclosure for clients, discovery, and moderation.",
+      "description": "Structured automation disclosure for an account. Intended to complement the coarse global bot self-label with richer metadata for clients, discovery, moderation, and cross-checking against operator attestations.",
       "record": {
         "type": "object",
         "required": [
@@ -29,7 +29,7 @@
           "operator": {
             "type": "string",
             "format": "did",
-            "description": "Optional DID of the human, organization, or service account responsible for operating this automated account."
+            "description": "Optional DID of the account claimed to operate this automated account."
           },
           "purpose": {
             "type": "string",

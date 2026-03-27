@@ -1,0 +1,40 @@
+{
+  "lexicon": 1,
+  "id": "one.mlf.actor.automation.operates",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "any",
+      "description": "Operator-side attestation that the authoring account claims to operate a specific automated account. Intended to be cross-checked against the subject account's automation declaration.",
+      "record": {
+        "type": "object",
+        "required": [
+          "subject"
+        ],
+        "properties": {
+          "subject": {
+            "type": "string",
+            "format": "did",
+            "description": "DID of the automated account this account claims to operate."
+          },
+          "description": {
+            "type": "string",
+            "description": "Optional human-readable description of the operated account, such as its purpose, brand relationship, or expected behavior.",
+            "maxLength": 1000,
+            "maxGraphemes": 300
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "Optional RFC 3339 timestamp indicating when this operator attestation was first created."
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "Optional RFC 3339 timestamp indicating when this operator attestation was last updated."
+          }
+        }
+      }
+    }
+  }
+}
